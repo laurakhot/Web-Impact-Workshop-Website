@@ -15,7 +15,6 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'workshopType',
@@ -89,6 +88,15 @@ export default defineType({
     defineField({
       name: 'recordingLink',
       title: 'Workshop Recording Link',
+      type: 'url',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
+    }),
+    defineField({
+      name: 'demoLink',
+      title: 'Demo Link',
       type: 'url',
       validation: (Rule) =>
         Rule.uri({

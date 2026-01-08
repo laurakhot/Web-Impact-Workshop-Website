@@ -15,7 +15,7 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
     const labels = {
       coding: 'Coding',
       design: 'Design',
-      collab: 'Collab Lecture',
+      collab: 'Collab',
     }
     return labels[type as keyof typeof labels] || type
   }
@@ -69,9 +69,11 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
         </div>
 
         {/* Description */}
-        <p className="text-sm text-black dark:text-gray-300 line-clamp-3">
-          {workshop.description}
-        </p>
+        {workshop.description && (
+          <p className="text-sm text-black dark:text-gray-300 line-clamp-3">
+            {workshop.description}
+          </p>
+        )}
 
         {/* Links section */}
         <div className="flex flex-wrap gap-2 pt-2">
@@ -93,6 +95,16 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
               className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-[#6a39EC] bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
             >
               Recording
+            </a>
+          )}
+          {workshop.demoLink && (
+            <a
+              href={workshop.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-[#6a39EC] bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
+            >
+              Demo
             </a>
           )}
           {workshop.preworkshopMaterials &&

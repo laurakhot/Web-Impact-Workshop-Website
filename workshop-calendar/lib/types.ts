@@ -1,7 +1,7 @@
 export interface Workshop {
   _id: string
   title: string
-  description: string
+  description?: string
   workshopType: Array<'coding' | 'design' | 'collab'> | 'coding' | 'design' | 'collab'
   quarter: 'fall' | 'winter' | 'spring'
   year: number
@@ -9,6 +9,7 @@ export interface Workshop {
   dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday'
   slideLink?: string
   recordingLink?: string
+  demoLink?: string
   preworkshopMaterials?: Array<{
     title: string
     link: string

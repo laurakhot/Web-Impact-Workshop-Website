@@ -57,12 +57,21 @@ export default function Footer() {
     }
   ]
 
-  if (!pathname.includes("/studio")) {
-    return (
-      <footer className="fixed bottom-0 left-0 right-0 bg-darkPurple px-4 md:px-8 py-4 z-50">
-        <div className="max-w-[96rem] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          {/* Logo and copyright */}
-          <div className="flex flex-col items-center sm:items-start justify-center">
+  // Hide footer on Sanity Studio routes
+  if (pathname.includes("/studio") || pathname.includes("/structure")) {
+    return null
+  }
+
+  return (
+    <header className="fixed top-0 left-0 right-0 bg-darkPurple py-2 z-50">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 px-4 md:px-8">
+        {/* Logo */}
+        <div className="flex items-center justify-start sm:flex-1">
+          <a
+            href="https://webimpactuw.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src="/logo_main.svg"
               alt="Web Impact Logo"
@@ -70,42 +79,39 @@ export default function Footer() {
               width={158}
               height={48}
             />
-            <p className="text-primary">
-              © Web Impact UW 2021-{new Date().getFullYear()}
-            </p>
-          </div>
-
-          {/* Social icons + theme toggle */}
-          <div className="flex justify-center gap-6">
-            {/* Social media icons */}
-            {socialLinks.map((link) => (
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={link.href}
-                className="flex items-center justify-center"
-              >
-                <Image
-                  src={link.image}
-                  alt={link.alt}
-                  width={48}
-                  height={48}
-                />
-              </a>
-            ))}
-
-            {/* Theme toggle (rightmost) */}
-            <button
-              onClick={toggleTheme}
-              className="flex items-center justify-center text-4xl"
-              aria-label="Toggle theme"
-            >
-              {isDark ? '☀️' : '🌙'}
-            </button>
-          </div>
+          </a>
         </div>
-      </footer>
-    )
-  }
+
+        {/* Social icons + theme toggle */}
+        <div className="flex justify-center gap-6">
+          {/* Social media icons */}
+          {socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={link.href}
+              className="flex items-center justify-center"
+            >
+              <Image
+                src={link.image}
+                alt={link.alt}
+                width={36}
+                height={36}
+              />
+            </a>
+          ))}
+
+          {/* Theme toggle (rightmost) */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center text-3xl"
+            aria-label="Toggle theme"
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button>
+        </div>
+      </div>
+    </header>
+  )
 }

@@ -29,18 +29,14 @@ export function DaySection({ date, workshops }: DaySectionProps) {
         )}
       </div>
 
-      {/* Workshop cards - centered, 2 columns on larger screens */}
-      {workshops.length === 1 ? (
-        <div className="w-full max-w-md">
-          <WorkshopCard workshop={workshops[0]} />
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full max-w-4xl">
+      {/* Workshop cards - centered, consistent width */}
+      <div className="flex flex-col items-center gap-4 w-full max-w-md lg:max-w-4xl">
+        <div className={`grid ${workshops.length === 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'} gap-4 w-full ${workshops.length === 1 ? 'max-w-md' : 'lg:max-w-4xl'}`}>
           {workshops.map((workshop) => (
             <WorkshopCard key={workshop._id} workshop={workshop} />
           ))}
         </div>
-      )}
+      </div>
     </section>
   )
 }

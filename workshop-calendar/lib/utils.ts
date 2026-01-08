@@ -11,15 +11,21 @@ export function groupByDate(workshops: Workshop[]): GroupedWorkshops[] {
     return []
   }
 
-  // Sort workshops by date
+  // Sort workshops by date in reverse chronological order (most recent first)
   const sortedWorkshops = [...workshops].sort(
-    (a, b) => new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime()
+    (a, b) => new Date(b.dateTime).getTime() - new Date(a.dateTime).getTime()
   )
 
   // Create a map of date strings to workshops
   const workshopsByDate = new Map<string, Workshop[]>()
   sortedWorkshops.forEach((workshop) => {
-    const dateStr = new Date(workshop.dateTime).toISOString().split('T')[0]
+    // Parse date in local timezone to avoid off-by-one errors
+    const date = new Date(workshop.dateTime)
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    const dateStr = `${year}-${month}-${day}`
+
     if (!workshopsByDate.has(dateStr)) {
       workshopsByDate.set(dateStr, [])
     }
@@ -35,8 +41,8 @@ export function groupByDate(workshops: Workshop[]): GroupedWorkshops[] {
     })
   })
 
-  // Sort by date
-  return result.sort((a, b) => a.date.localeCompare(b.date))
+  // Sort by date in reverse chronological order (most recent first)
+  return result.sort((a, b) => b.date.localeCompare(a.date))
 }
 
 export function isPastWorkshop(dateTime: string): boolean {
