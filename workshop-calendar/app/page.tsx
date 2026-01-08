@@ -52,11 +52,11 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Header */}
         <header className="mb-12 text-center">
-          <h1 className="text-4xl font-bold text-primary-700 dark:text-primary-400 mb-3">
+          <h1 className="text-4xl font-bold text-[#6a39EC] dark:text-primary-400 mb-3">
             Web Impact Workshops
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            Workshop calendar for coding, design, and collaboration
+          <p className="text-lg text-black dark:text-gray-400">
+            Workshop calendar for coding, design, and collabs
           </p>
         </header>
 

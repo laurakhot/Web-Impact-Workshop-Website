@@ -14,11 +14,11 @@ export function DaySection({ date, workshops }: DaySectionProps) {
     <section className="space-y-4 flex flex-col items-center">
       {/* Day header - centered */}
       <div className="flex items-center justify-center gap-3">
-        <h2 className="text-2xl font-bold text-primary-700 dark:text-primary-400">
+        <h2 className="text-2xl font-bold text-[#6a39EC] dark:text-primary-400">
           {formatDayHeader(date)}
         </h2>
         {workshops.length > 1 && (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-[#6a39EC] dark:bg-primary-900 dark:text-primary-200">
             {workshops.length} workshops
           </span>
         )}

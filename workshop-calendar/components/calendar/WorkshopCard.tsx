@@ -49,7 +49,7 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
       <div className="space-y-3">
         {/* Header with type badges */}
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold text-foreground flex-1">
+          <h3 className="text-lg font-semibold text-black dark:text-white flex-1">
             {workshop.title}
           </h3>
           <div className="flex flex-wrap gap-1 justify-end">
@@ -62,14 +62,14 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
         </div>
 
         {/* Time */}
-        <div className="text-sm text-gray-600 dark:text-gray-400">
+        <div className="text-sm text-black dark:text-gray-400">
           <p className="font-medium">
             {formatTime(workshop.dateTime)}
           </p>
         </div>
 
         {/* Description */}
-        <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
+        <p className="text-sm text-black dark:text-gray-300 line-clamp-3">
           {workshop.description}
         </p>
 
@@ -80,7 +80,7 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
               href={workshop.slideLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-primary-700 bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
+              className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-[#6a39EC] bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
             >
               Slides
             </a>
@@ -90,7 +90,7 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
               href={workshop.recordingLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-primary-700 bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
+              className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-[#6a39EC] bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
             >
               Recording
             </a>
@@ -104,7 +104,7 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
                     href={material.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-primary-700 bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
+                    className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-[#6a39EC] bg-primary-100 rounded-md hover:bg-primary-200 transition-colors dark:bg-primary-900 dark:text-primary-200 dark:hover:bg-primary-800"
                   >
                     {material.title}
                   </a>
@@ -115,7 +115,7 @@ export function WorkshopCard({ workshop }: WorkshopCardProps) {
 
         {/* Past indicator */}
         {past && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+          <p className="text-xs text-black dark:text-gray-400 italic">
             This workshop has already occurred
           </p>
         )}

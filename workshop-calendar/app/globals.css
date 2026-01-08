@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+@variant dark (.dark &);
+
 :root {
-  --background: #faf5ff;
+  --background: #f5f5f5;
   --foreground: #1f1f1f;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #0f0a14;
+  --foreground: #f3e8ff;
 }
 
 @theme inline {
@@ -10,7 +18,19 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Purple shades for primary theme */
+  /* Web Impact Club Colors */
+  --color-primary: #8555EF;
+  --color-secondary: #6A39EC;
+  --color-lightText: #F9F8FC;
+  --color-darkPurple: #1E095B;
+  --color-gray: #E5E5E5;
+  --color-grayLight: #F9F8FC;
+  --color-grayDark: #1D1B27;
+  --color-lightPurple: #E9DEF8;
+  --color-lightGreen: #D1FFBD;
+  --color-lightBlue: #90D5FF;
+
+  /* Purple shades for primary theme (keeping for compatibility) */
   --color-primary-50: #faf5ff;
   --color-primary-100: #f3e8ff;
   --color-primary-200: #e9d5ff;
@@ -29,15 +49,8 @@
   --color-collab: #14b8a6;
 
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-outfit);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f0a14;
-    --foreground: #f3e8ff;
-  }
 }
 
 body {
