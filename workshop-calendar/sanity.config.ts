@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'Web Impact Workshops',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  projectId: 'sisk686y',
+  dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
 
